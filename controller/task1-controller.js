@@ -9,7 +9,7 @@ const pool = mysql.createPool({
     waitForConnections: true,
     connectionLimit: 10,
     queueLimit: 0
-  });
+});
 
 const task1 =  async (req, res) => {
 
@@ -48,8 +48,7 @@ const task1 =  async (req, res) => {
                 });
 
                 conn.release();
-        }
-        )
+        });
     } catch(error) {
         return res.status(500).json({
             success: false,

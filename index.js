@@ -1,3 +1,4 @@
+require('dotenv').config();
 const {Client, Pool} = require('pg');
 const mysql = require('mysql2');
 const config = require('./config/configDB')
