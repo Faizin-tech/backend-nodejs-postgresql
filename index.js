@@ -2,10 +2,9 @@ const {Client, Pool} = require('pg');
 const mysql = require('mysql2');
 const config = require('./config/configDB')
 const express = require("express");
-const bodyParser = require("body-parser");
+const helmet = require('helmet');
 const cors = require("cors");
 const morgan = require("morgan");
-const { DB } = require('./config/configDB');
 
 const app = express();
 
@@ -30,11 +29,24 @@ const db = mysql.createConnection({
     database: config.DB
 })
 
+// Connnection to MySQL
 db.connect((err) => {
     if (err) throw err;
 
-    console.log('Mysql Connected...')
+    console.log('Mysql Connected...');
+    db.end();
 })
+
+// Use Plugins
+app.use(cors());
+app.use(express.json());
+app.use(express.urlencoded({extended: true}));
+app.use(helmet());
+app.use(morgan('dev'));
+
+// Routes
+const routes = require('./routes');
+app.use('/', routes);
 
 // const client = new Pool({
 //     user: config.USER,
@@ -49,8 +61,8 @@ db.connect((err) => {
 // .finally(() => client.end())
 
 // Automatic Migrate DB Postgre
-const dbMigate = require('./model/index')
-dbMigate.sequelize.sync();
+// const dbMigate = require('./model/index')
+// dbMigate.sequelize.sync();
 
 const server = app.listen(PORT, () => {
     console.log("Server running in port : " + PORT);
