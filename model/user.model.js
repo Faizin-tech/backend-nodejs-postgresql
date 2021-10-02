@@ -27,18 +27,6 @@ module.exports = (sequelize, Sequelize) => {
         salesPerson:{
             type: Sequelize.STRING
         },
-        retailUser:{
-            type: Sequelize.STRING
-        },
-        aproveLimit1: {
-            type: Sequelize.BOOLEAN,
-        },
-        aproveLimit2: {
-            type: Sequelize.BOOLEAN,
-        },
-        aproveDiscount: {
-            type: Sequelize.BOOLEAN,
-        },
     });
     return UserBoffice;
 };
