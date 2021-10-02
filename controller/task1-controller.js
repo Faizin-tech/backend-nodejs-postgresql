@@ -17,7 +17,7 @@ const task1 =  async (req, res) => {
         
         const   addData = 'INSERT INTO `users` (`UserName`, `Parent`) VALUES ?;',
                 dataToAdd = [ ['Ali', 2], ['Budi', 0], ['Cecep', 1] ],
-                selectData = `SELECT UserName,Parent,(SELECT UserName FROM users B WHERE B.id = A.Parent) AS UserParent FROM users A`;
+                selectData = `SELECT id AS ID,UserName,(SELECT UserName FROM users B WHERE B.id = A.Parent) AS UserParent FROM users A`;
 
         pool.query(addData,
         [dataToAdd], 
