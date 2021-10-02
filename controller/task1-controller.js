@@ -19,33 +19,37 @@ const task1 =  async (req, res) => {
                 dataToAdd = [ ['Ali', 2], ['Budi', 0], ['Cecep', 1] ],
                 selectData = `SELECT id AS ID,UserName,(SELECT UserName FROM users B WHERE B.id = A.Parent) AS UserParent FROM users A`;
 
-        pool.query(addData,
-        [dataToAdd], 
-        (err, rows, fields) => {
-            if (err) {
-                return res.status(400).json({
-                    success: false,
-                    message: err,
-                });
-            }
-
-            pool.query(selectData, (err, rows, fields) => {
-                
-                if (err) {
-                    return res.status(400).json({
-                        success: false,
-                        message: err,
+        pool.getConnection( (err, conn) => {
+            conn.query(addData,
+                [dataToAdd], 
+                (err, rows, fields) => {
+                    if (err) {
+                        return res.status(400).json({
+                            success: false,
+                            message: err,
+                        });
+                    }
+        
+                    conn.query(selectData, (err, rows, fields) => {
+                        
+                        if (err) {
+                            return res.status(400).json({
+                                success: false,
+                                message: err,
+                            });
+                        }
+        
+                        return res.status(200).json({
+                            success: true,
+                            message: `Success Get Data`,
+                            data: rows
+                        });
                     });
-                }
-
-                return res.status(200).json({
-                    success: true,
-                    message: `Success Get Data`,
-                    data: rows
                 });
-            })
 
-        })
+                conn.release();
+        }
+        )
     } catch(error) {
         return res.status(500).json({
             success: false,
