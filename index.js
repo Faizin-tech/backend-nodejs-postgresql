@@ -69,5 +69,44 @@ const server = app.listen(PORT, () => {
     console.log("Server running in port : " + PORT);
 });
 
+function findFirstStringInBracket(str){   
+    if(str.length > 0){ 
+        let indexFirstBracketFound = str.indexOf("(");    	  
+        let indexLastBracketFound = str.indexOf(")");    	  
+        let wordsAfterFirstBracket = str.substr( indexFirstBracketFound + 1, (indexLastBracketFound - indexFirstBracketFound) -1 );
+        console.log(wordsAfterFirstBracket)  	      
+        
+        return(indexFirstBracketFound >= 0 && indexLastBracketFound >= 0)
+            ? wordsAfterFirstBracket
+            : '' 
+
+
+        // console.log(indexFirstBracketFound, indexLastBracketFound);
+        // if(indexFirstBracketFound >= 0){ 
+        //     let wordsAfterFirstBracket = str.substr( indexFirstBracketFound );  	      
+        //     console.log(wordsAfterFirstBracket);
+        //     if(wordsAfterFirstBracket){ 
+        //         wordsAfterFirstBracket = wordsAfterFirstBracket.substr(1);  	         
+        //         console.log(wordsAfterFirstBracket);
+        //         let indexClosingBracketFound = wordsAfterFirstBracket.indexOf(")");  	         
+                
+        //         if(indexClosingBracketFound >= 0){  	          
+        //             console.log(wordsAfterFirstBracket.substring(0, indexClosingBracketFound)); 
+        //         } else {  	          
+        //             return '';  	         
+        //         } 
+        //     } else {  	         
+        //         return ''; 
+        //     } 
+        // } else {       	
+        //     return ''; 
+        // } 
+    } else {      
+        return ''; 
+    } 
+}
+
+findFirstStringInBracket('aku suka sama (keke)')
+
 module.exports = server;
 
