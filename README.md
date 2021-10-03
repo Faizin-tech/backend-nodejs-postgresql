@@ -46,13 +46,13 @@ npx nodemon
 
 Untuk melihat hasil pekerjaan submission dapat melihat link dibawah ini:
 
-\*[Task 1 (Users) Localhost](http://localhost:8081/task1)
+- [Task 1 (Users) Localhost](http://localhost:8081/task1)
 
 ```npm
 http://localhost:8081/task1
 ```
 
-\*[Task 2 (Movie Searcher) Localhost](http://localhost:8081/task2/search?keywords=MARVEL&page=1)
+- [Task 2 (Movie Searcher) Localhost](http://localhost:8081/task2/search?keywords=MARVEL&page=1)
 
 ```npm
 http://localhost:8081/task2/search?keywords=&page=
@@ -60,7 +60,7 @@ http://localhost:8081/task2/search?keywords=&page=
 
 Masukan judul yang ingin dicari pada parameter keywords dan untuk menganti hasil berdasarkan page dengan mengganti nilai pada parameterpage, Setiap keyword yang dimasukan akan tersimpan di database
 
-\*[Task 2 (Movie Detail) Localhost](http://localhost:8081/task2/detail?id=tt0458339)
+- [Task 2 (Movie Detail) Localhost](http://localhost:8081/task2/detail?id=tt0458339)
 
 ```npm
 http://localhost:8081/task2/detail?id=
@@ -68,7 +68,7 @@ http://localhost:8081/task2/detail?id=
 
 Masukan parameter id berdasarkan imdbID untuk melihat informasi detail movie
 
-\*[Task 3 (Refactor Code Get FindFirstStringInBracket) Localhost](<http://localhost:8081/task3/findWord?word=yakin(usaha)sampai>)
+- [Task 3 (Refactor Code Get FindFirstStringInBracket) Localhost](<http://localhost:8081/task3/findWord?word=yakin(usaha)sampai>)
 
 ```npm
 http://localhost:8081/task3/findWord?word=
@@ -76,7 +76,7 @@ http://localhost:8081/task3/findWord?word=
 
 Masukan kata yang terdapat simbol '(' dan ')' untuk mendapatkan hasil yang diinginkan
 
-\*[Task 4 (Anagram) Localhost](http://localhost:8081/task4)
+- [Task 4 (Anagram) Localhost](http://localhost:8081/task4)
 
 ```npm
 http://localhost:8081/task4
