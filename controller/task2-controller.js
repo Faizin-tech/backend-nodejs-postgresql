@@ -26,7 +26,7 @@ const task2ListSearchMovie = async (req, res) => {
                 .then(([res1, res2]) => {
                     return res.status(200).send({
                         success: true,
-                        detailMovie
+                        listMovie
                     })
                 })
                 .catch(([err1, err2]) => {
