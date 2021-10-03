@@ -45,6 +45,13 @@ app.use(express.urlencoded({extended: true}));
 app.use(helmet());
 app.use(morgan('dev'));
 
+app.get('/', (req, res) => {
+    res.send({
+        'Version': '1.1.1',
+        'Description': 'Submission Bibit',
+    });
+});
+
 // Routes
 const routes = require('./routes');
 app.use('/', routes);
