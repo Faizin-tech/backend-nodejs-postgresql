@@ -1,12 +1,12 @@
 {
   "name": "bibit",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "build": "mkdir dist && cp -R index.js .env package.json package-lock.json dist",
-    "start": "set  NODE_ENV=production&& node index.js"
+    "start": "node index.js"
   },
   "author": "faiz",
   "license": "ISC",
