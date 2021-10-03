@@ -61,7 +61,7 @@ app.use('/', routes);
 // .catch(e => console.log(e.message))
 // .finally(() => client.end())
 
-// Automatic Migrate DB Postgre
+// Automatic Migrate DB
 // const dbMigate = require('./model/index')
 // dbMigate.sequelize.sync();
 
@@ -69,44 +69,39 @@ const server = app.listen(PORT, () => {
     console.log("Server running in port : " + PORT);
 });
 
-function findFirstStringInBracket(str){   
-    if(str.length > 0){ 
-        let indexFirstBracketFound = str.indexOf("(");    	  
-        let indexLastBracketFound = str.indexOf(")");    	  
-        let wordsAfterFirstBracket = str.substr( indexFirstBracketFound + 1, (indexLastBracketFound - indexFirstBracketFound) -1 );
-        console.log(wordsAfterFirstBracket)  	      
-        
-        return(indexFirstBracketFound >= 0 && indexLastBracketFound >= 0)
-            ? wordsAfterFirstBracket
-            : '' 
+const words = ['kita', 'atik', 'tika', 'aku', 'kia', 'makan', 'kua'];
 
-
-        // console.log(indexFirstBracketFound, indexLastBracketFound);
-        // if(indexFirstBracketFound >= 0){ 
-        //     let wordsAfterFirstBracket = str.substr( indexFirstBracketFound );  	      
-        //     console.log(wordsAfterFirstBracket);
-        //     if(wordsAfterFirstBracket){ 
-        //         wordsAfterFirstBracket = wordsAfterFirstBracket.substr(1);  	         
-        //         console.log(wordsAfterFirstBracket);
-        //         let indexClosingBracketFound = wordsAfterFirstBracket.indexOf(")");  	         
-                
-        //         if(indexClosingBracketFound >= 0){  	          
-        //             console.log(wordsAfterFirstBracket.substring(0, indexClosingBracketFound)); 
-        //         } else {  	          
-        //             return '';  	         
-        //         } 
-        //     } else {  	         
-        //         return ''; 
-        //     } 
-        // } else {       	
-        //     return ''; 
-        // } 
-    } else {      
-        return ''; 
-    } 
+function sortStrChars(str) {
+    if (!str) {
+        return;
+    }
+    str = str.split('');
+    str = str.sort();
+    str = str.join('');
+    console.log(str);
+    return str;
 }
 
-findFirstStringInBracket('aku suka sama (keke)')
+function getGroupedAnagrams(words) {
+    const anagrams = {};
+    words.forEach((word) => {
+        const sortedWord = sortStrChars(word);
+        if (anagrams[sortedWord]) {
+            return anagrams[sortedWord].push(word);
+        }
+        anagrams[sortedWord] = [word];
+    });
+    console.log(anagrams);
+    return anagrams;
+}
+
+const groupedAnagrams = getGroupedAnagrams(words);
+const anagramResult = [];
+
+for (const sortedWord in groupedAnagrams) {
+    anagramResult.push(groupedAnagrams[sortedWord])
+}
+console.log(anagramResult);
 
 module.exports = server;
 
