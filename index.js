@@ -62,8 +62,8 @@ app.use('/', routes);
 // .finally(() => client.end())
 
 // Automatic Migrate DB
-// const dbMigate = require('./model/index')
-// dbMigate.sequelize.sync();
+const dbMigate = require('./model/index')
+dbMigate.sequelize.sync();
 
 const server = app.listen(PORT, () => {
     console.log("Server running in port : " + PORT);
