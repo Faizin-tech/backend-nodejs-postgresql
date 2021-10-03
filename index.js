@@ -23,20 +23,20 @@ if (NODE_ENV === "production") {
     PORT = PORT_SERVER
 }
 
-const db = mysql.createConnection({
-    host : config.HOST,
-    user: config.USER,
-    password: config.PASSWORD,
-    database: config.DB
-})
+// const db = mysql.createConnection({
+//     host : config.HOST,
+//     user: config.USER,
+//     password: config.PASSWORD,
+//     database: config.DB
+// })
 
 // Connnection to MySQL
-db.connect((err) => {
-    if (err) throw err;
+// db.connect((err) => {
+//     if (err) throw err;
 
-    console.log('Mysql Connected...');
-    db.end();
-})
+//     console.log('Mysql Connected...');
+//     db.end();
+// })
 
 // Use Plugins
 app.use(cors());
@@ -49,17 +49,17 @@ app.use(morgan('dev'));
 const routes = require('./routes');
 app.use('/', routes);
 
-// const client = new Pool({
-//     user: config.USER,
-//     host: config.HOST,
-//     password: config.PASSWORD,
-//     database: config.DB
-// })
+const client = new Pool({
+    user: config.USER,
+    host: config.HOST,
+    password: config.PASSWORD,
+    database: config.DB
+})
 
-// client.connect()
-// .then(() => console.log('Connected to Server'))
-// .catch(e => console.log(e.message))
-// .finally(() => client.end())
+client.connect()
+.then(() => console.log('Connected to Server'))
+.catch(e => console.log(e.message))
+.finally(() => client.end())
 
 // Automatic Migrate DB
 const dbMigate = require('./model/index')

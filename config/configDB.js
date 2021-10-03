@@ -12,9 +12,9 @@ const {
 module.exports = {
     HOST: HOST,
     USER: USER,
-    PASSWORD: '',
+    PASSWORD: PASSWORD,
     DB: DB,
-    dialect: 'mysql',
+    dialect: 'postgres',
     pool: {
         max: 10,
         min: 0,
