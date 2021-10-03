@@ -69,40 +69,5 @@ const server = app.listen(PORT, () => {
     console.log("Server running in port : " + PORT);
 });
 
-// const words = ['kita', 'atik', 'tika', 'aku', 'kia', 'makan', 'kua'];
-
-// function sortStrChars(str) {
-//     if (!str) {
-//         return;
-//     }
-//     str = str.split('');
-//     str = str.sort();
-//     str = str.join('');
-//     console.log(str);
-//     return str;
-// }
-
-// function getGroupedAnagrams(words) {
-//     const anagrams = {};
-//     words.forEach((word) => {
-//         const sortedWord = sortStrChars(word);
-//         if (anagrams[sortedWord]) {
-//             return anagrams[sortedWord].push(word);
-//         }
-//         console.log(anagrams); 
-//         anagrams[sortedWord] = [word];
-//     });
-//     console.log(anagrams);
-//     return anagrams;
-// }
-
-// const groupedAnagrams = getGroupedAnagrams(words);
-// const anagramResult = [];
-
-// for (const sortedWord in groupedAnagrams) {
-//     anagramResult.push(groupedAnagrams[sortedWord])
-// }
-// console.log(anagramResult);
-
 module.exports = server;
 
