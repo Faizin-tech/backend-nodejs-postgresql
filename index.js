@@ -15,13 +15,13 @@ const {
     PORT_SERVER
 } = process.env  
 
-// let PORT;
+let PORT;
 
-// if (NODE_ENV === "production") {
-//     PORT = PORT_SERVER
-// } else {
-//     PORT = PORT_SERVER
-// }
+if (NODE_ENV === "production") {
+    PORT = PORT_SERVER
+} else {
+    PORT = PORT_SERVER
+}
 
 const db = mysql.createConnection({
     host : config.HOST,
@@ -64,8 +64,10 @@ app.use('/', routes);
 // Automatic Migrate DB
 // const dbMigate = require('./model/index')
 // dbMigate.sequelize.sync();
-const PORT = process.env.PORT || 4000
 
-app.listen(PORT, () => {
+const server = app.listen(PORT, () => {
     console.log("Server running in port : " + PORT);
 });
+
+module.exports = server;
+
