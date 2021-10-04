@@ -15,28 +15,26 @@ const {
     PORT_SERVER
 } = process.env  
 
-let PORT;
+let PORT,
+    CLIENT
 
 if (NODE_ENV === "production") {
     PORT = PORT_SERVER
+    CLIENT = new Pool({
+        connectionString: process.env.CONSTR,
+        ssl: {
+            rejectUnauthorized: false
+        }
+    })
 } else {
-    PORT = PORT_SERVER
+    PORT = PORT_SERVER;
+    CLIENT = new Pool({
+        user: config.USER,
+        host: config.HOST,
+        password: config.PASSWORD,
+        database: config.DB
+    })
 }
-
-// const db = mysql.createConnection({
-//     host : config.HOST,
-//     user: config.USER,
-//     password: config.PASSWORD,
-//     database: config.DB
-// })
-
-// Connnection to MySQL
-// db.connect((err) => {
-//     if (err) throw err;
-
-//     console.log('Mysql Connected...');
-//     db.end();
-// })
 
 // Use Plugins
 app.use(cors());
@@ -56,24 +54,18 @@ app.get('/', (req, res) => {
 const routes = require('./routes');
 app.use('/', routes);
 
-const client = new Pool({
-    user: config.USER,
-    host: config.HOST,
-    password: config.PASSWORD,
-    database: config.DB
-})
-
-client.connect()
+CLIENT.connect()
 .then(() => console.log('Connected to Server'))
 .catch(e => console.log(e.message))
-.finally(() => client.end())
+.finally(() => CLIENT.end())
 
 // Automatic Migrate DB
 const dbMigate = require('./model/index')
 dbMigate.sequelize.sync();
 
-const server = app.listen(PORT, () => {
-    console.log("Server running in port : " + PORT);
+
+const server = app.listen(process.env.PORT || PORT , () => {
+    console.log("Server running in port : " + PORT || PORT);
 });
 
 module.exports = server;
