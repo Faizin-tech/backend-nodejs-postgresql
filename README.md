@@ -52,6 +52,10 @@ Untuk melihat hasil pekerjaan submission dapat melihat link dibawah ini:
 http://localhost:8081/task1
 ```
 
+Untuk Codenya dapat di lihat pada ~/controller/task1-controller.js
+
+<br>
+
 - [Task 2 (Movie Searcher) Localhost](http://localhost:8081/task2/search?keywords=MARVEL&page=1)
 
 ```npm
@@ -60,11 +64,19 @@ http://localhost:8081/task2/search?keywords=&page=
 
 Masukan judul yang ingin dicari pada parameter keywords dan untuk menganti hasil berdasarkan page dengan mengganti nilai pada parameterpage, Setiap keyword yang dimasukan akan tersimpan di database
 
+Untuk Codenya dapat di lihat pada ~/controller/task2-controller.js function expressions task2ListSearchMovie
+
+<br>
+
 - [Task 2 (Movie Detail) Localhost](http://localhost:8081/task2/detail?id=tt0458339)
 
 ```npm
 http://localhost:8081/task2/detail?id=
 ```
+
+Untuk Codenya dapat di lihat pada ~/controller/task2-controller.js function expressions task2SearchMovieById
+
+<br>
 
 Masukan parameter id berdasarkan imdbID untuk melihat informasi detail movie
 
@@ -76,11 +88,19 @@ http://localhost:8081/task3/findWord?word=
 
 Masukan kata yang terdapat simbol '(' dan ')' untuk mendapatkan hasil yang diinginkan
 
+Untuk Codenya dapat di lihat pada ~/controller/task3-controller.js
+
+<br>
+
 - [Task 4 (Anagram) Localhost](http://localhost:8081/task4)
 
 ```npm
 http://localhost:8081/task4
 ```
+
+Untuk Codenya dapat di lihat pada ~/controller/task4-controller.js
+
+<br>
 
 Terimakasih sudah melihat code saya..
 
