@@ -6,7 +6,6 @@ const express = require("express");
 const helmet = require('helmet');
 const cors = require("cors");
 const morgan = require("morgan");
-
 const app = express();
 
 const {
@@ -28,12 +27,7 @@ if (NODE_ENV === "production") {
     })
 } else {
     PORT = PORT_SERVER;
-    CLIENT = new Pool({
-        user: config.USER,
-        host: config.HOST,
-        password: config.PASSWORD,
-        database: config.DB
-    })
+    CLIENT = config.CLIENT
 }
 
 // Use Plugins
@@ -54,14 +48,16 @@ app.get('/', (req, res) => {
 const routes = require('./routes');
 app.use('/', routes);
 
-CLIENT.connect()
-.then(() => console.log('Connected to Server'))
-.catch(e => console.log(e.message))
-.finally(() => CLIENT.end())
+try {
+    CLIENT.authenticate();
+    console.log('Connection has been established successfully.');
+  } catch (error) {
+    console.error('Unable to connect to the database:', error);
+  }
 
 // Automatic Migrate DB
-const dbMigate = require('./model/index')
-dbMigate.sequelize.sync();
+// const dbMigate = require('./model/index')
+// dbMigate.sequelize.sync();
 
 
 const server = app.listen(process.env.PORT || PORT , () => {

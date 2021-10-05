@@ -1,6 +1,7 @@
 const mysql = require('mysql2');
 const config = require('../config/configDB');
 const User =  require('../model').user;
+const sequileze =  require('../model').sequelize;
 
 // const pool = mysql.createPool({
 //     host: config.HOST,
@@ -13,19 +14,7 @@ const User =  require('../model').user;
 
 const {Pool,Client} = require('pg');
 
-const client = new Pool({
-    user: config.USER,
-    host: config.HOST,
-    database: config.DB,
-    password: config.PASSWORD,
-    port: 5432,
-    dialectOptions: {
-        ssl: {
-            require: true,
-            rejectUnauthorized: false
-        }
-    },
-});
+const client = config.CLIENT
 
 const task1 =  async (req, res) => {
 
