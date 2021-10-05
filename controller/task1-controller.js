@@ -1,20 +1,4 @@
-const mysql = require('mysql2');
-const config = require('../config/configDB');
-const User =  require('../model').user;
 const sequileze =  require('../model').sequelize;
-
-// const pool = mysql.createPool({
-//     host: config.HOST,
-//     user: config.USER,
-//     database: config.DB,
-//     waitForConnections: true,
-//     connectionLimit: 10,
-//     queueLimit: 0
-// });
-
-const {Pool,Client} = require('pg');
-
-const client = config.CLIENT
 
 const task1 =  async (req, res) => {
 

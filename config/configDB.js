@@ -29,22 +29,5 @@ CLIENT = new Seq(DB, USER,PASSWORD, {
 })
 
 module.exports = {
-    HOST: HOST,
-    USER: USER,
-    PASSWORD: PASSWORD,
-    DB: DB,
-    dialect: 'postgres',
-    dialectOptions: {
-        ssl: {
-            require: true,
-            rejectUnauthorized: false
-        }
-    },
-    pool: {
-        max: 10,
-        min: 0,
-        acquire: 30000,
-        idle: 10000
-    },
     CLIENT
 }
