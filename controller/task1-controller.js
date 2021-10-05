@@ -19,6 +19,12 @@ const client = new Pool({
     database: config.DB,
     password: config.PASSWORD,
     port: 5432,
+    dialectOptions: {
+        ssl: {
+            require: true,
+            rejectUnauthorized: false
+        }
+    },
 });
 
 const task1 =  async (req, res) => {
