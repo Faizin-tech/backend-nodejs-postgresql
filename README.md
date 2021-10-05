@@ -62,7 +62,7 @@ Untuk Codenya dapat di lihat pada ~/controller/task1-controller.js
 http://localhost:8081/task2/search?keywords=&page=
 ```
 
-Masukan judul yang ingin dicari pada parameter keywords dan untuk menganti hasil berdasarkan page dengan mengganti nilai pada parameterpage, Setiap keyword yang dimasukan akan tersimpan di database
+Masukan judul yang ingin dicari pada parameter keywords dan untuk menganti hasil berdasarkan page cukup ganti nilai pada parameter page, Setiap keyword yang dimasukan akan tersimpan di database
 
 Untuk Codenya dapat di lihat pada ~/controller/task2-controller.js function expressions task2ListSearchMovie
 
