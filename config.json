@@ -1,9 +1,0 @@
-{
-    "production": {
-        "username": "ddqaowxlwdvgvb",
-        "password": "c304d5ced1b23bf559e2c65c26d0b3c2f0d3ad233bcfa1ffde56da278be9d085",
-        "database": "d5ri89b8f53pg8",
-        "host": "ec2-44-198-154-255.compute-1.amazonaws.com",
-        "dialect": "postgre"
-    }
-}

@@ -1,6 +1,4 @@
 require('dotenv').config();
-const {Client, Pool} = require('pg');
-const mysql = require('mysql2');
 const config = require('./config/configDB')
 const express = require("express");
 const helmet = require('helmet');
@@ -46,9 +44,9 @@ app.use('/', routes);
 try {
     CLIENT.authenticate();
     console.log('Connection has been established successfully.');
-  } catch (error) {
+} catch (error) {
     console.error('Unable to connect to the database:', error);
-  }
+}
 
 // Automatic Migrate DB
 // const dbMigate = require('./model/index')
