@@ -78,9 +78,9 @@ http://localhost:8081/task2/detail?id=
 
 Untuk Codenya dapat di lihat pada ~/controller/task2-controller.js function expressions task2SearchMovieById
 
-<br>
-
 Masukan parameter id berdasarkan imdbID untuk melihat informasi detail movie
+
+<br>
 
 - [Task 3 (Refactor Code Get FindFirstStringInBracket) Localhost](<http://localhost:8081/task3/findWord?word=yakin(usaha)sampai>)
 
