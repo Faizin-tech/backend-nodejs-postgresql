@@ -19,12 +19,7 @@ let PORT,
 
 if (NODE_ENV === "production") {
     PORT = PORT_SERVER
-    CLIENT = new Pool({
-        connectionString: process.env.DATABASE_URL,
-        ssl: {
-            rejectUnauthorized: false
-        }
-    })
+    CLIENT = config.CLIENT
 } else {
     PORT = PORT_SERVER;
     CLIENT = config.CLIENT
