@@ -4,6 +4,12 @@ const Seq = require('sequelize');
 const sequelize = new Seq(config.DB, config.USER, config.PASSWORD, {
     host: config.HOST,
     dialect: config.dialect,
+    dialectOptions: {
+        ssl: {
+            require: true,
+            rejectUnauthorized: false
+        }
+    },
     operatorAliases: 0,
     pool: {
         max: config.pool.max,
