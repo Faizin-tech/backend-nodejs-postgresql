@@ -49,8 +49,8 @@ try {
 }
 
 // Automatic Migrate DB
-// const dbMigate = require('./model/index')
-// dbMigate.sequelize.sync();
+const dbMigate = require('./model/index')
+dbMigate.sequelize.sync();
 
 
 const server = app.listen(process.env.PORT || PORT , () => {
