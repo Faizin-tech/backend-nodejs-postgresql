@@ -1,6 +1,6 @@
 require('dotenv').config();
 const fetch = require('node-fetch');
-const LogURL = require('../model').logSeacrh;
+const LogURL = require('../models').logSeacrh;
 
 const {
     APIKEY

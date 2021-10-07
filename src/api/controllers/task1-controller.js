@@ -1,4 +1,4 @@
-const sequileze =  require('../model').sequelize;
+const sequileze =  require('../models').sequelize;
 
 const task1 =  async (req, res) => {
 

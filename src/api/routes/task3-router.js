@@ -1,5 +1,5 @@
 const router = require('express').Router();
-const wordController = require('../controller').task3FindWord;
+const wordController = require('../controllers').task3FindWord;
 
 router.get('/findWord', wordController.task3FindWord);
 

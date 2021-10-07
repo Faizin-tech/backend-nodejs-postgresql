@@ -6,20 +6,22 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "build": "mkdir dist && cp -R index.js .env package.json package-lock.json dist",
-    "start": "node index.js"
+    "start": "cd src && nodemon"
   },
   "author": "faiz",
   "license": "ISC",
   "dependencies": {
+    "compression": "^1.7.4",
     "cors": "^2.8.5",
     "dotenv": "^10.0.0",
     "express": "^4.17.1",
     "helmet": "^4.6.0",
-    "morgan": "^1.10.0",
-    "mysql2": "^2.3.0",
     "node-fetch": "^2.6.1",
-    "nodemon": "^2.0.12",
     "pg": "^8.7.1",
     "sequelize": "^6.6.5"
+  },
+  "devDependencies": {
+    "morgan": "^1.10.0",
+    "nodemon": "^2.0.13"
   }
 }
